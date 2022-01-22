@@ -4,10 +4,8 @@ import ToolBar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 //import { makeStyles, createStyles } from "@mui/styles";
 //import { makeStyles } from "@mui/material/styles";
-
-
-
-
+//import Logo from "../../assets/logo.svg";
+import useClasses from "../../hooks/use-classes";
 
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 
@@ -25,7 +23,7 @@ function ElevationScroll(props) {
     elevation: trigger ? 4 : 0,
   });
 }
-/** <div className={classes.toolbarMargin} />
+/** 
  * const useStyles = makeStyles((theme) => ({
   toolbarMargin: {
     ...theme.mixins.toolBar,
@@ -33,18 +31,25 @@ function ElevationScroll(props) {
 }));
 const classes = useStyles();
  */
-
+const styles = (theme) => ({
+  toolbarMargin: {
+    ...theme.mixins.toolbar,
+  },
+});
 
 const Header = (props) => {
-  
+  const classes = useClasses(styles);
   return (
-    <ElevationScroll>
-      <AppBar position="fixed">
-        <ToolBar>
-          <Typography variant="h3">Avatar Tech</Typography>
-        </ToolBar>
-      </AppBar>
-    </ElevationScroll>
+    <React.Fragment>
+      <ElevationScroll>
+        <AppBar position="fixed">
+          <ToolBar>
+            <Typography variant="h3">Avatar Tech</Typography>
+          </ToolBar>
+        </AppBar>
+      </ElevationScroll>
+      <div className={classes.toolbarMargin} />
+    </React.Fragment>
   );
 };
 export default Header;
