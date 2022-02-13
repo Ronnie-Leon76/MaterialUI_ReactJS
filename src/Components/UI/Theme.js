@@ -1,5 +1,5 @@
 import { createTheme } from "@mui/material/styles";
-import { typography } from "@mui/system";
+//import { typography } from "@mui/system";
 
 const arcBlue = "#0B72B1";
 const arcOrange = "#FFBA60";
